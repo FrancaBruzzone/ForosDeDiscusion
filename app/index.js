@@ -74,8 +74,6 @@ async function createSchema() {
   } catch (err) {
     console.error("Error creating schema:", err);
     process.exit(1);
-  } finally {
-    await client.shutdown();
   }
 }
 

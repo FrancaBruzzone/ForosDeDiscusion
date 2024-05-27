@@ -1,161 +1,140 @@
 {
-	"info": {
-		"_postman_id": "719f04f8-c182-4c40-aba3-0743bb164eb7",
-		"name": "Foros de discusión",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30022639",
-		"_collection_link": "https://universal-resonance-925496.postman.co/workspace/Team-Workspace~13c187bb-1216-45c0-8970-97cddd55cc1d/collection/30022639-719f04f8-c182-4c40-aba3-0743bb164eb7?action=share&source=collection_link&creator=30022639"
-	},
-	"item": [
-		{
-			"name": "Crear Usuario",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"username\": \"francabruzzone\",\r\n  \"email\": \"francabruzzone2@gmail.com\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/users",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Crear Foro",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"forumName\": \"General Discussion\",\r\n  \"createdBy\": \"1\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/forums",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"forums"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Crear Tema",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"forumId\": \"1\",\r\n  \"topicTitle\": \"Bienvenidos al foro!\",\r\n  \"createdBy\": \"1\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/topics",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"topics"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Publicar Mensaje",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"topicId\": \"1\",\r\n  \"userId\": \"1\",\r\n  \"content\": \"Hola a todos! Bienvenidos al nuevo foro.\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/messages",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"messages"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Obtener mensajes recientes",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"topicId\": \"1\",\r\n  \"userId\": \"1\",\r\n  \"content\": \"Hola a todos! Bienvenidos al nuevo foro.\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/messages/:topicId",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"messages",
-						":topicId"
-					],
-					"variable": [
-						{
-							"key": "topicId",
-							"value": "1"
-						}
-					]
-				}
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "719f04f8-c182-4c40-aba3-0743bb164eb7",
+    "name": "Foros de discusión",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "30022639",
+    "_collection_link": "https://universal-resonance-925496.postman.co/workspace/Team-Workspace~13c187bb-1216-45c0-8970-97cddd55cc1d/collection/30022639-719f04f8-c182-4c40-aba3-0743bb164eb7?action=share&source=collection_link&creator=30022639"
+  },
+  "item": [
+    {
+      "name": "Crear Usuario",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"francabruzzone\",\r\n  \"email\": \"francabruzzone2@gmail.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["users"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear Foro",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"forumName\": \"General Discussion\",\r\n  \"createdBy\": \"cd4a95e5-727f-47e3-97b0-ad6f4c5d6baa\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/forums",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["forums"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear Tema",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"forumId\": \"171fa373-0e7a-4536-a8d3-28e4cad01ed3\",\r\n  \"topicTitle\": \"Bienvenidos al foro!\",\r\n  \"createdBy\": \"cd4a95e5-727f-47e3-97b0-ad6f4c5d6baa\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/topics",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["topics"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Publicar Mensaje",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"topicId\": \"b90b8b53-b723-436e-abe2-9e504e11f206\",\r\n  \"userId\": \"cd4a95e5-727f-47e3-97b0-ad6f4c5d6baa\",\r\n  \"content\": \"Hola a todos! Bienvenidos al nuevo foro.\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/messages",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["messages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener mensajes recientes",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"topicId\": \"1\",\r\n  \"userId\": \"1\",\r\n  \"content\": \"Hola a todos! Bienvenidos al nuevo foro.\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/messages/:topicId",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["messages", ":topicId"],
+          "variable": [
+            {
+              "key": "topicId",
+              "value": "b90b8b53-b723-436e-abe2-9e504e11f206"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
 }
