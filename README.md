@@ -5,8 +5,7 @@ Este proyecto es una implementación de un sistema de foros de discusión utiliz
 ## Requisitos
 
 - Docker
-- Node.js (versión 12 o superior)
-- Cassandra (versión 3.11 o superior)
+- Node.js
 
 ## Instalación
 
