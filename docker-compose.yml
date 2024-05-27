@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - obl-network
+    depends_on:
+      - cassandra
+    restart: on-failure
+
+  cassandra:
+    image: cassandra:latest
+    networks:
+      - obl-network
+    ports:
+      - "9042:9042"
+    restart: on-failure
+
+networks:
+  obl-network:
+    name: obl-network
