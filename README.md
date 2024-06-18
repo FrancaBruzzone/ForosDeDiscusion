@@ -21,7 +21,7 @@ Ejecutar el siguiente comando:
 docker-compose up --build
 ```
 
-El servidor estará disponible en `http://localhost:3000`
+El servidor estará disponible en `http://localhost:3001`
 
 ## Uso
 

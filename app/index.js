@@ -4,7 +4,7 @@ const cassandra = require("cassandra-driver");
 const { v4: uuidv4 } = require("uuid");
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 const client = new cassandra.Client({
   contactPoints: ["cassandra"],
