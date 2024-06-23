@@ -72,8 +72,15 @@ POST /messages
 ### Obtener mensajes recientes
 
 ```
-GET /messages/:topicId
+GET /messages
 
 Parámetros de consulta:
+messageId: Identificador del mensaje
+topicId: Identificador del tema
+fromDate: Fecha de creación
+userId: Identificador del usuario
 limit: Número de mensajes a obtener (opcional, por defecto 10).
+
+Ejemplo:
+GET /messages?messageId=2bc1c34a-81af-4738-beaf-fa00b60d0a29&topicId=07eb4697-be73-46e0-9f8e-8c652c7dfa7c&fromDate=2024-06-23T00:00:00&userId=359355d8-c93f-497f-b4c6-7fb89c00d81a
 ```
