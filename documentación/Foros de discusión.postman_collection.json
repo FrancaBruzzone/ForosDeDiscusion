@@ -42,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"forumName\": \"General Discussion\",\r\n  \"createdBy\": \"cd4a95e5-727f-47e3-97b0-ad6f4c5d6baa\"\r\n}",
+					"raw": "{\r\n  \"forumName\": \"General Discussion\",\r\n  \"createdBy\": \"359355d8-c93f-497f-b4c6-7fb89c00d81a\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -70,7 +70,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"forumId\": \"171fa373-0e7a-4536-a8d3-28e4cad01ed3\",\r\n  \"topicTitle\": \"Bienvenidos al foro!\",\r\n  \"createdBy\": \"cd4a95e5-727f-47e3-97b0-ad6f4c5d6baa\"\r\n}",
+					"raw": "{\r\n  \"forumId\": \"6bb7a41c-5932-4bd1-9172-f17f56ddd98b\",\r\n  \"topicTitle\": \"Bienvenidos al tema 1\",\r\n  \"createdBy\": \"359355d8-c93f-497f-b4c6-7fb89c00d81a\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -98,7 +98,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"topicId\": \"b90b8b53-b723-436e-abe2-9e504e11f206\",\r\n  \"userId\": \"cd4a95e5-727f-47e3-97b0-ad6f4c5d6baa\",\r\n  \"content\": \"Hola a todos! Bienvenidos al nuevo foro.\"\r\n}",
+					"raw": "{\r\n  \"topicId\": \"07eb4697-be73-46e0-9f8e-8c652c7dfa7c\",\r\n  \"userId\": \"359355d8-c93f-497f-b4c6-7fb89c00d81a\",\r\n  \"content\": \"Hola a todos! Este es el nuevo mensaje.\",\r\n  \"links\": \"\",\r\n  \"hashtags\": \"\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -137,20 +137,31 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3001/messages/:topicId",
+					"raw": "http://localhost:3001/messages?messageId=2bc1c34a-81af-4738-beaf-fa00b60d0a29&topicId=07eb4697-be73-46e0-9f8e-8c652c7dfa7c&fromDate=2024-06-23T00:00:00&userId=359355d8-c93f-497f-b4c6-7fb89c00d81a",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3001",
 					"path": [
-						"messages",
-						":topicId"
+						"messages"
 					],
-					"variable": [
+					"query": [
+						{
+							"key": "messageId",
+							"value": "2bc1c34a-81af-4738-beaf-fa00b60d0a29"
+						},
 						{
 							"key": "topicId",
-							"value": "b90b8b53-b723-436e-abe2-9e504e11f206"
+							"value": "07eb4697-be73-46e0-9f8e-8c652c7dfa7c"
+						},
+						{
+							"key": "fromDate",
+							"value": "2024-06-23T00:00:00"
+						},
+						{
+							"key": "userId",
+							"value": "359355d8-c93f-497f-b4c6-7fb89c00d81a"
 						}
 					]
 				}

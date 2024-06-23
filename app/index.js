@@ -57,6 +57,8 @@ async function createSchema() {
       topic_id UUID,
       user_id UUID,
       content text,
+      links text,
+      hashtags text,
       created_at timestamp,
       PRIMARY KEY (topic_id, created_at, message_id)
     ) WITH CLUSTERING ORDER BY (created_at DESC);
@@ -143,31 +145,72 @@ app.post("/topics", async (req, res) => {
 
 // Publicar mensaje
 app.post("/messages", async (req, res) => {
-  const { topicId, userId, content } = req.body;
+  const { topicId, userId, content, links, hashtags } = req.body;
   const messageId = uuidv4();
   const createdAt = new Date();
   const query =
-    "INSERT INTO messages (message_id, topic_id, user_id, content, created_at) VALUES (?, ?, ?, ?, ?)";
+    "INSERT INTO messages (message_id, topic_id, user_id, content, links, hashtags, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)";
   try {
     await client.execute(
       query,
-      [messageId, topicId, userId, content, createdAt],
+      [messageId, topicId, userId, content, links, hashtags, createdAt],
       { prepare: true }
     );
-    res.status(201).json({ messageId, topicId, userId, content, createdAt });
+    res.status(201).json({
+      messageId,
+      topicId,
+      userId,
+      content,
+      links,
+      hashtags,
+      createdAt,
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
 // Obtener mensajes recientes
-app.get("/messages/:topicId", async (req, res) => {
-  const { topicId } = req.params;
+app.get("/messages", async (req, res) => {
+  const { messageId, topicId, userId, fromDate } = req.query;
   const limit = parseInt(req.query.limit) || 10;
-  const query =
-    "SELECT message_id, user_id, content, created_at FROM messages WHERE topic_id = ? ORDER BY created_at DESC LIMIT ?";
+
+  let query =
+    "SELECT message_id, topic_id, user_id, content, links, hashtags, created_at FROM messages";
+  const params = [];
+  const filters = [];
+
+  if (messageId != null) {
+    filters.push("message_id = ?");
+    params.push(messageId);
+  }
+
+  if (topicId != null) {
+    filters.push("topic_id = ?");
+    params.push(topicId);
+  }
+
+  if (userId != null) {
+    filters.push("user_id = ?");
+    params.push(userId);
+  }
+
+  if (fromDate != null) {
+    filters.push("created_at >= ?");
+    params.push(new Date(fromDate).getTime());
+  }
+
+  if (filters.length > 0) {
+    query += " WHERE " + filters.join(" AND ");
+  }
+
+  query += " LIMIT ? ALLOW FILTERING";
+
+  console.log(query);
+  params.push(limit);
+
   try {
-    const result = await client.execute(query, [topicId, limit], {
+    const result = await client.execute(query, params, {
       prepare: true,
     });
     res.json(result.rows);
